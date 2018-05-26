@@ -25,13 +25,21 @@
 
 package com.example.nishant.hellokotlin
 
+import android.databinding.DataBindingUtil.setContentView
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.example.nishant.hellokotlin.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    lateinit var userText: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        val binding: ActivityMainBinding = setContentView(this, R.layout.activity_main)
+
+        binding.button.setOnClickListener({
+            userText = binding.editText.text.toString()
+            binding.createdByTv.text = userText
+        })
     }
 }
