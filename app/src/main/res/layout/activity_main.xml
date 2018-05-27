@@ -31,10 +31,6 @@
         <variable
             name="core"
             type="com.example.nishant.hellokotlin.CoreDetail" />
-
-        <variable
-            name="activity"
-            type="com.example.nishant.hellokotlin.MainActivity" />
     </data>
 
     <android.support.constraint.ConstraintLayout
