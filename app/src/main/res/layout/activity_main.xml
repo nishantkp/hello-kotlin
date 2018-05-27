@@ -31,6 +31,10 @@
         <variable
             name="core"
             type="com.example.nishant.hellokotlin.CoreDetail" />
+
+        <variable
+            name="activity"
+            type="com.example.nishant.hellokotlin.MainActivity" />
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -68,13 +72,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="serif-monospace"
+            android:text="@={core.name}"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:text="@={core.name}" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView2"
@@ -103,7 +107,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="24dp"
             android:layout_marginStart="24dp"
+            android:fontFamily="serif-monospace"
             android:text="@{core.language}"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/core_language_label"
             app:layout_constraintStart_toEndOf="@+id/core_language_label" />
 
@@ -123,7 +129,9 @@
             android:id="@+id/created_on_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="serif-monospace"
             android:text="@{core.dateString}"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/created_on_label"
             app:layout_constraintStart_toStartOf="@+id/core_language_tv" />
     </android.support.constraint.ConstraintLayout>
