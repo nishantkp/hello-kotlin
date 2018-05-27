@@ -19,29 +19,24 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- * File Created on 26/05/18 2:24 PM by nishant
- * Last Modified on 26/05/18 2:10 PM
+ * File Created on 26/05/18 9:53 PM by nishant
+ * Last Modified on 26/05/18 9:53 PM
  */
 
 package com.example.nishant.hellokotlin
 
-import android.databinding.DataBindingUtil.setContentView
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
-import com.example.nishant.hellokotlin.databinding.ActivityMainBinding
+import android.annotation.SuppressLint
+import java.text.SimpleDateFormat
+import java.util.*
 
-class MainActivity : AppCompatActivity() {
-    lateinit var userText: String
+class CoreDetail(var language: String = "Kotlin") {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val binding: ActivityMainBinding = setContentView(this, R.layout.activity_main)
+    var dateString: String
 
-        binding.button.setOnClickListener({
-            userText = binding.editText.text.toString()
-            binding.createdByTv.text = userText
-            binding.core = CoreDetail()
-            binding.executePendingBindings()
-        })
+    init {
+        val date: Date = Calendar.getInstance().time
+        @SuppressLint("SimpleDateFormat")
+        val dateFormat = SimpleDateFormat("dd-MMM-yyyy")
+        dateString = dateFormat.format(date).toString()
     }
 }
