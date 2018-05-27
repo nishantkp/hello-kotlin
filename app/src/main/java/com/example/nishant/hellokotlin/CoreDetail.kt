@@ -26,17 +26,37 @@
 package com.example.nishant.hellokotlin
 
 import android.annotation.SuppressLint
+import android.databinding.Bindable
+import android.databinding.Observable
+import android.databinding.PropertyChangeRegistry
 import java.text.SimpleDateFormat
 import java.util.*
 
-class CoreDetail(var language: String = "Kotlin") {
+class CoreDetail(var language: String = "Kotlin") : Observable {
+
+    private val registry = PropertyChangeRegistry()
 
     var dateString: String
+
+    var name: String = "user"
+        @Bindable get
+        set(value) {
+            field = value
+            registry.notifyChange(this, BR.name)
+        }
 
     init {
         val date: Date = Calendar.getInstance().time
         @SuppressLint("SimpleDateFormat")
         val dateFormat = SimpleDateFormat("dd-MMM-yyyy")
         dateString = dateFormat.format(date).toString()
+    }
+
+    override fun removeOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
+        registry.remove(callback)
+    }
+
+    override fun addOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
+        registry.add(callback)
     }
 }

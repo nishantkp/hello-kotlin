@@ -19,30 +19,17 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- * File Created on 26/05/18 2:24 PM by nishant
- * Last Modified on 26/05/18 2:10 PM
+ * File Created on 26/05/18 10:59 PM by nishant
+ * Last Modified on 26/05/18 10:59 PM
  */
 
-package com.example.nishant.hellokotlin
+package com.example.nishant.hellokotlin.utils
 
-import android.databinding.DataBindingUtil.setContentView
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
-import com.example.nishant.hellokotlin.databinding.ActivityMainBinding
-import com.example.nishant.hellokotlin.utils.toast
+import android.content.Context
+import android.widget.Toast
 
-class MainActivity : AppCompatActivity() {
-
-    private val coreDetail = CoreDetail()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val binding: ActivityMainBinding = setContentView(this, R.layout.activity_main)
-        binding.core = coreDetail
-
-        // Button click
-        binding.button.setOnClickListener({
-            this.toast("Java: Kotlin = Awesomeness{ ${coreDetail.name} }")
-        })
-    }
-}
+/**
+ * Extension function for showing toast messages
+ */
+fun Context.toast(message: CharSequence) =
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
