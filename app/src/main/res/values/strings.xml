@@ -26,7 +26,7 @@
 <resources>
     <string name="app_name">Hello Kotlin</string>
     <string name="created_by">Created by</string>
-    <string name="enter">Enter</string>
+    <string name="enter">Toast</string>
     <string name="edit_text_hint">enter your name</string>
     <string name="core_language_label">Core Language</string>
     <string name="created_on_label">Created On</string>
